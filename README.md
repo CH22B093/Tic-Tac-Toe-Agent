@@ -1,2 +1,2 @@
-# Tic-Tac-Toe-Agent
-An agent which maximizes the next move in a tic tac toe game
+## Tic-Tac-Toe-Agent
+This is a tic-tac-toe game agent which uses Alpha-beta pruning to maximize the win of the agent.
