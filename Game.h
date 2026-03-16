@@ -6,6 +6,8 @@
 
 class Game{
     public: 
+        char AI_player;
+        char human_player;
         Board board;
         MinimaxAI ai;
         void play();

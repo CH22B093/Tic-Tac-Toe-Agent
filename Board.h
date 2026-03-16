@@ -7,7 +7,7 @@ class Board{
         char grid[SIZE][SIZE];
         Board();
         bool isMovesLeft() const;
-        int evaluate() const;
+        int evaluate(char ai_player,char human_player) const;
         void print() const;
 };
 #endif

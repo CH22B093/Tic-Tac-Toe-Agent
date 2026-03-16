@@ -2,13 +2,15 @@
 #include <algorithm>
 using namespace std;
 
-MinimaxAI::MinimaxAI(){
-    AI_player = 'X';
-    human_player = 'O';
+MinimaxAI::MinimaxAI() : AI_player('X'), human_player('O'){}
+
+void MinimaxAI::setPlayers(char ai_player,char human_player){
+    AI_player = ai_player;
+    human_player = human_player;
 }
 
 int MinimaxAI::minimax(Board &board, bool isMax, int alpha,int beta,int depth){
-    int score = board.evaluate();
+    int score = board.evaluate(AI_player,human_player);
     if (score == 10) return score - depth;
     if (score == -10)return score + depth;
     if (!board.isMovesLeft())return 0;

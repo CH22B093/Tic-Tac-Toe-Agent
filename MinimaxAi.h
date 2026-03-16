@@ -7,11 +7,12 @@
 
 class MinimaxAI{
     public:
-        char AI_player;
-        char human_player;
-
         MinimaxAI();
+        void setPlayers(char ai_player,char human_player);
         int minimax(Board &board,bool isMax,int alpha,int beta,int depth);
         std::pair<int,int> find_best_move(Board &board);
+    private:
+        char AI_player;
+        char human_player;
 };
 #endif

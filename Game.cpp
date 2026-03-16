@@ -3,7 +3,14 @@
 using namespace std;
 
 void Game::play(){
-    cout<<"You are O. AI is X.\n";
+    cout<<"Welcome to Tic-Tac-Toe!\n";
+    while (human_player != 'O' && human_player != 'X'){
+        cout<<"Select your symbol (O or X): ";
+        cin>>human_player;
+        human_player = toupper(human_player);
+    }
+    AI_player = (human_player == 'O')?'X':'O';
+    ai.setPlayers(AI_player,human_player);
 
     while (true){
         board.print();
@@ -15,9 +22,9 @@ void Game::play(){
             cout<<"Invalid move!\n";
             continue;
         }
-        board.grid[r][c] = 'O';
+        board.grid[r][c] = human_player;
 
-        if (board.evaluate() == -10){
+        if (board.evaluate(AI_player,human_player) == -10){
             board.print();
             cout<<"You win!\n";
             break;
@@ -29,10 +36,10 @@ void Game::play(){
         }
 
         auto [aiR,aiC] = ai.find_best_move(board);
-        board.grid[aiR][aiC] = 'X';
+        board.grid[aiR][aiC] = AI_player;
         cout<<"AI plays: "<<aiR<<" "<<aiC<<"\n";
 
-        if (board.evaluate() == 10){
+        if (board.evaluate(AI_player,human_player) == 10){
             board.print();
             cout<<"AI wins!\n";
             break;
